@@ -1,0 +1,6 @@
+<aside id="sidebar" <% if (theme.sidebar==='right' ){ %> class="outer"
+  <% } %>>
+  <% theme.widgets.forEach(function(widget){ %>
+  <%- partial('_widget/' + widget) %>
+  <% }) %>
+</aside>

@@ -1,0 +1,49 @@
+#sidebar, .widget-wrap {
+  margin: block-margin 0;
+}
+
+.widget-title {
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: color-grey;
+  margin-bottom: 1em;
+  margin-left: 5px;
+  line-height: 1em;
+  // font-weight: bold;
+}
+
+.widget {
+  color: color-sidebar-text;
+  text-shadow: 0 1px #fff;
+  background: color-widget-background;
+  padding: 15px;
+  // border: solid 7px #52524f;
+  transition: all 0.2s;
+  box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);
+  border-top-left-radius: 255px 20px;
+  border-top-right-radius: 15px 225px;
+  border-bottom-right-radius: 225px 15px;
+  border-bottom-left-radius: 15px 255px;
+
+  a {
+    font-size: 1rem;
+    color: color-widget-font-color;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  ul, ol, dl {
+    ul, ol, dl {
+      margin-left: 15px;
+      list-style: disc;
+    }
+  }
+}
+
+.widget:hover {
+  box-shadow: 2px 8px 4px -6px rgba(0, 0, 0, 0.3);
+}

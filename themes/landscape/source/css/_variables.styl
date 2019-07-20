@@ -1,0 +1,81 @@
+// Config
+support-for-ie = false;
+vendor-prefixes = webkit moz ms official;
+// Colors
+color-default = #555;
+color-grey = #999;
+color-border = #ddd;
+color-link = #258fb8;
+color-background = #fff;
+color-sidebar-text = #777;
+color-widget-background = #F7F7F7;
+color-widget-border = #ccc;
+color-widget-font-color = #333;
+color-footer-background = #262a30;
+color-mobile-nav-background = #191919;
+color-twitter = #00aced;
+color-facebook = #3b5998;
+color-pinterest = #cb2027;
+color-google = #dd4b39;
+font-sans = -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+font-serif = Georgia, 'Times New Roman', serif;
+font-mono = 'Source Code Pro', Consolas, Monaco, Menlo, Consolas, monospace;
+font-icon = FontAwesome;
+font-icon-path = 'fonts/fontawesome-webfont';
+font-icon-version = '4.0.3';
+font-size = 14px;
+line-height = 1.6em;
+line-height-title = 1.1em;
+// Header
+logo-size = 40px;
+subtitle-size = 16px;
+banner-height = 300px;
+banner-url = 'images/banner.jpg';
+sidebar = hexo-config('sidebar');
+// Layout
+block-margin = 50px;
+article-padding = 20px;
+mobile-nav-width = 280px;
+main-column = 9;
+sidebar-column = 3;
+
+if (sidebar && (sidebar != bottom)) {
+  _sidebar-column = sidebar-column;
+} else {
+  _sidebar-column = 0;
+}
+
+// Grids
+column-width = 80px;
+gutter-width = 20px;
+columns = main-column + _sidebar-column;
+// Media queries
+mq-mobile = 'screen and (max-width: 479px)';
+mq-tablet = 'screen and (min-width: 480px) and (max-width: 767px)';
+mq-normal = 'screen and (min-width: 768px)';
+
+/* 定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸 */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  background-color: #f5f5f5;
+}
+
+/* 定义滚动条轨道 内阴影+圆角 */
+::-webkit-scrollbar-track {
+  // -webkit-box-shadow: inset 0 0 6px #C1C1C1;
+  // border-radius: 5px;
+  background-color: #f5f5f5;
+}
+
+/* 定义滑块 内阴影+圆角 */
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 6px #c1c1c1;
+  background-color: #41403e;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #919191;
+}
