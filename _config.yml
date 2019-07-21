@@ -35,7 +35,7 @@ titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
-post_asset_folder: true
+post_asset_folder: true # 文章资源文件夹 {% asset_img example.jpg This is an example image %}
 relative_link: false
 future: true
 highlight:
@@ -79,7 +79,7 @@ theme: hexo-theme-huhu
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: git@github.com/shixiaohu2206/shixiaohu2206.github.io.git
+  repository: https://github.com/shixiaohu2206/shixiaohu2206.github.io.git
   branch: master
 
 admin:
