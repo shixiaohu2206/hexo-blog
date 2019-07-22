@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="baidu-site-verification" content="vvVgSQUzPU" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta name="keywords" content="Utone,博客,个人,utone" />
+    <meta name="description" content="Utone|博客|个人|utones" />
+    <title>Utone</title>
+    <link rel="stylesheet" href="/style/style.css"> <link rel="stylesheet" href="/style/viewer.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.3.6/viewer.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="head">
+      
+      <a href="/">
+        Home
+      </a>
+      
+      <a href="/archives">
+        Archives
+      </a>
+      
+      <a href="/about">
+        About
+      </a>
+      
+    </div>
+    <div id="container">
+      <div id="main">
+        <div class="navbar">
+          <div class="toggle">
+            <i class="icon-align-right"></i>
+          </div>
+          <div class="search">
+            <div class="input-warp">
+              <i class="icon-search"></i>
+              <input type="text" name="" id="" placeholder="Search Keys" />
+            </div>
+          </div>
+        </div>
+        <div class="content">
+          <article class="post-entry">
+    <div class="header">
+      <div class="title">PWA功能</div>
+      <div class="date">
+        <i class="icon-calendar"></i>
+        2019/06/14
+      </div>
+    </div>
+    <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><blockquote>
+<p>PWA（Progressive Web App）, 即渐进式 web 应用。PWA 本质上是 web 应用，目的是通过多项新技术，在安全、性能、体验等方面给用户原生应用的体验。而且无需像原生应用那样繁琐的下载、安装、升级等操作。</p>
+</blockquote>
+<a id="more"></a>
+<p>打开<code>chrome://inspect/#service-workers</code>可查看 chrome 当前运行的 service worker</p>
+<h3 id="核心技术"><a href="#核心技术" class="headerlink" title="核心技术"></a>核心技术</h3><blockquote>
+<p>Service Worker 是 PWA 的核心技术</p>
+</blockquote>
+<h4 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h4><ul>
+<li>基于 HTTPS 环境，这是构建 PWA 的硬性前提</li>
+<li>是一个独立的 worker 线程，独立于当前网页进程，有自己独立的 worker context</li>
+<li>可拦截 HTTP 请求和响应，可缓存文件，缓存的文件可以在网络离线状态时取到</li>
+<li>能向客户端推送消息</li>
+<li>不能直接操作 DOM</li>
+<li>异步实现，内部大都是通过 Promise 实现</li>
+</ul>
+<h3 id="Service-Worker-生命周期"><a href="#Service-Worker-生命周期" class="headerlink" title="Service Worker 生命周期"></a>Service Worker 生命周期</h3><blockquote>
+<p>注册–安装–激活</p>
+</blockquote>
+<h4 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h4><blockquote>
+<p>告诉浏览器 serviceworkerJS 文件存放在什么位置，浏览器下载、解析、执行。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="string">'serviceWorker'</span> <span class="keyword">in</span> navigator) &#123;</span><br><span class="line">  <span class="built_in">window</span>.addEventListener(<span class="string">'load'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    navigator.serviceWorker</span><br><span class="line">      .register(<span class="string">'/sw.js'</span>)</span><br><span class="line">      .then(<span class="function"><span class="keyword">function</span>(<span class="params">registration</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 注册成功</span></span><br><span class="line">        <span class="built_in">console</span>.log(</span><br><span class="line">          <span class="string">'ServiceWorker registration successful with scope: '</span>,</span><br><span class="line">          registration.scope</span><br><span class="line">        )</span><br><span class="line">      &#125;)</span><br><span class="line">      .catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 注册失败:(</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'ServiceWorker registration failed: '</span>, err)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><blockquote>
+<p>注册结束后，触发 install 事件，进行安装。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> CACHE_VERSION = <span class="string">'sw_v8'</span></span><br><span class="line"><span class="keyword">var</span> CACHE_FILES = [<span class="string">'/js/jquery/min.js'</span>, <span class="string">'/js/zui/min.js'</span>, <span class="string">'/js/chanzhi.js'</span>]</span><br><span class="line">self.addEventListener(<span class="string">'install'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">  event.waitUntil(</span><br><span class="line">    caches.open(CACHE_VERSION).then(<span class="function"><span class="params">cache</span> =&gt;</span> cache.addAll(CACHE_FILES))</span><br><span class="line">  )</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="激活"><a href="#激活" class="headerlink" title="激活"></a>激活</h4><blockquote>
+<p>当安装成功后，serviceworker 就会激活，这时就会处理 activate 事件回调 (提供了更新缓存策略的机会)。并可以处理功能性的事件 fetch (请求)、sync (后台同步)、push (推送)。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">self.addEventListener(<span class="string">'activate'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">  event.waitUntil(</span><br><span class="line">    caches.keys().then(<span class="function"><span class="keyword">function</span>(<span class="params">keys</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">Promise</span>.all(</span><br><span class="line">        keys.map(<span class="function"><span class="keyword">function</span>(<span class="params">key, i</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">if</span> (key !== CACHE_VERSION) &#123;</span><br><span class="line">            <span class="keyword">return</span> caches.delete(keys[i])</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">      )</span><br><span class="line">    &#125;)</span><br><span class="line">  )</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="Service-Worker-缓存功能"><a href="#Service-Worker-缓存功能" class="headerlink" title="Service Worker 缓存功能"></a>Service Worker 缓存功能</h3><blockquote>
+<p>安装时，service worker 将我们指定的静态资源进行缓存（即预缓存）,与此同时，service worker 还可以拦截 HTTP 请求相应，做到动态缓存</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">self.addEventListener(<span class="string">'fetch'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">  event.respondWith(</span><br><span class="line">    caches.match(event.request).then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (response) &#123;</span><br><span class="line">        <span class="keyword">return</span> response</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">var</span> requestToCache = event.request.clone()</span><br><span class="line">      <span class="keyword">return</span> fetch(requestToCache).then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!response || response.status !== <span class="number">200</span>) &#123;</span><br><span class="line">          <span class="keyword">return</span> response</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> responseToCache = response.clone()</span><br><span class="line">        caches.open(CACHE_VERSION).then(<span class="function"><span class="keyword">function</span>(<span class="params">cache</span>) </span>&#123;</span><br><span class="line">          cache.put(requestToCache, responseToCache)</span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="keyword">return</span> response</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">  )</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="PWA-添加横幅，增加用户使用率"><a href="#PWA-添加横幅，增加用户使用率" class="headerlink" title="PWA 添加横幅，增加用户使用率"></a>PWA 添加横幅，增加用户使用率</h4><ol>
+<li><a href="https://lavas.baidu.com/doc/engage-retain-users/add-to-home-screen/app-install-banners" target="_blank" rel="noopener">https://lavas.baidu.com/doc/engage-retain-users/add-to-home-screen/app-install-banners</a></li>
+<li><a href="https://github.com/electron-react-boilerplate/electron-react-boilerplate" target="_blank" rel="noopener">https://github.com/electron-react-boilerplate/electron-react-boilerplate</a></li>
+</ol>
+
+     <!--畅言PC和WAP自适应版-->
+  
+</article>
+
+        </div>
+      </div>
+      <div id="card">
+        <div class="logo-widget">
+          <div class="author">
+            Utone
+          </div>
+          <div
+            class="logo"
+            style="background-image: url('/images/logo.jpeg')"
+          ></div>
+        </div>
+        <div class="locate-widget">
+          <i class="icon-location"></i>
+        </div>
+        <div class="follow-widget">
+          
+          <a href="https://github.com/shixiaohu2206" target="_block"
+            ><i class="icon-github "></i
+          ></a>
+          
+          <a href="https://github.com/shixiaohu2206" target="_block"
+            ><i class="icon-wechat "></i
+          ></a>
+          
+          <a href="https://github.com/shixiaohu2206" target="_block"
+            ><i class="icon-QQ "></i
+          ></a>
+           
+          <a href="/atom.xml" target="_block"
+            ><i class="icon-rss"></i
+          ></a>
+          
+        </div>
+        
+        <div class="toc-widget">
+          <div class="title">
+            <span>Toc</span>
+          </div>
+          <div class="post-toc">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#介绍"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#核心技术"><span class="toc-text">核心技术</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#特性"><span class="toc-text">特性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Service-Worker-生命周期"><span class="toc-text">Service Worker 生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#注册"><span class="toc-text">注册</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#激活"><span class="toc-text">激活</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Service-Worker-缓存功能"><span class="toc-text">Service Worker 缓存功能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#PWA-添加横幅，增加用户使用率"><span class="toc-text">PWA 添加横幅，增加用户使用率</span></a></li></ol></li></ol>
+          </div>
+        </div>
+        
+        <div class="category-widget">
+          <div class="title">
+            <span>Categories</span>
+            <span><a href="/archives">···</a></span>
+          </div>
+          <div class="list">
+            <ul>
+               
+              <li>
+                <a href="/categories/Code/">
+                  Code
+                </a>
+              </li>
+                
+              <li>
+                <a href="/categories/代码/">
+                  代码
+                </a>
+              </li>
+                
+              <li>
+                <a href="/categories/Note/">
+                  Note
+                </a>
+              </li>
+                
+              <li>
+                <a href="/categories/Daily/">
+                  Daily
+                </a>
+              </li>
+                
+              <li>
+                <a href="/categories/Travel/">
+                  Travel
+                </a>
+              </li>
+                   
+            </ul>
+          </div>
+        </div>
+        <div class="tag-widget">
+          <div class="title">
+            <span>Tag Cloud</span>
+            <span><a href="">···</a></span>
+          </div>
+          <div class="tag-cloud">
+            <a href="/tags/Css/" style="font-size: 13px; color: #4a4a4a">Css</a> <a href="/tags/DvaJs/" style="font-size: 13px; color: #4a4a4a">DvaJs</a> <a href="/tags/ES6/" style="font-size: 13px; color: #4a4a4a">ES6</a> <a href="/tags/Eslint/" style="font-size: 13px; color: #4a4a4a">Eslint</a> <a href="/tags/Float/" style="font-size: 13px; color: #4a4a4a">Float</a> <a href="/tags/Git/" style="font-size: 15.33px; color: #4a4a4a">Git</a> <a href="/tags/JavaScript/" style="font-size: 20px; color: #4a4a4a">JavaScript</a> <a href="/tags/Linux/" style="font-size: 15.33px; color: #4a4a4a">Linux</a> <a href="/tags/MySql/" style="font-size: 13px; color: #4a4a4a">MySql</a> <a href="/tags/Nginx/" style="font-size: 13px; color: #4a4a4a">Nginx</a> <a href="/tags/NodeJS/" style="font-size: 13px; color: #4a4a4a">NodeJS</a> <a href="/tags/PHP/" style="font-size: 17.67px; color: #4a4a4a">PHP</a> <a href="/tags/Promise/" style="font-size: 13px; color: #4a4a4a">Promise</a> <a href="/tags/React/" style="font-size: 15.33px; color: #4a4a4a">React</a> <a href="/tags/SSH/" style="font-size: 13px; color: #4a4a4a">SSH</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script src="https://www.tianqiapi.com/api/?version=v6&callback=weathCb"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.3.6/viewer.js"></script>
+<script src="/scripts/viewer.js"></script>
+<script src="/scripts/index.js"></script>

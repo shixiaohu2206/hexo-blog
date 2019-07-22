@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="baidu-site-verification" content="vvVgSQUzPU" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta name="keywords" content="Utone,博客,个人,utone" />
+    <meta name="description" content="Utone|博客|个人|utones" />
+    <title>Utone</title>
+    <link rel="stylesheet" href="/style/style.css"> <link rel="stylesheet" href="/style/viewer.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.3.6/viewer.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="head">
+      
+      <a href="/">
+        Home
+      </a>
+      
+      <a href="/archives">
+        Archives
+      </a>
+      
+      <a href="/about">
+        About
+      </a>
+      
+    </div>
+    <div id="container">
+      <div id="main">
+        <div class="navbar">
+          <div class="toggle">
+            <i class="icon-align-right"></i>
+          </div>
+          <div class="search">
+            <div class="input-warp">
+              <i class="icon-search"></i>
+              <input type="text" name="" id="" placeholder="Search Keys" />
+            </div>
+          </div>
+        </div>
+        <div class="content">
+          <article class="post-entry">
+    <div class="header">
+      <div class="title">git生成ssh秘钥</div>
+      <div class="date">
+        <i class="icon-calendar"></i>
+        2017/10/20
+      </div>
+    </div>
+    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">// 查看是否存在秘钥</span><br><span class="line">$ <span class="built_in">cd</span> ~/.ssh</span><br><span class="line"></span><br><span class="line">// 配置用户相关信息</span><br><span class="line">$ git config –global user.name ‘xxxxx’</span><br><span class="line">$ git config –global user.email ‘xxx@xx.xxx’</span><br><span class="line"></span><br><span class="line">// 查看用户配置的相关信息</span><br><span class="line">$ git config user.name</span><br><span class="line">$ git config user.email</span><br><span class="line"></span><br><span class="line">// 生成秘钥 (邮箱为上方配置的邮箱)</span><br><span class="line">$ ssh-keygen -t rsa -C ‘xxx@xx.xxx’</span><br><span class="line"></span><br><span class="line">// 连按三个空格</span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (/c/Users/Mr.Yang/.ssh/id_rsa):</span><br><span class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase):</span><br><span class="line">Enter same passphrase again:</span><br><span class="line">Your identification has been saved <span class="keyword">in</span> /c/Users/Mr.Yang/.ssh/id_rsa.</span><br><span class="line">Your public key has been saved <span class="keyword">in</span> /c/Users/Mr.Yang/.ssh/id_rsa.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">SHA256:zA6wNJrFB6NcqS6eBog/AHlzQuvFjYpG759Yhh1lWGI xxxxxx@xxxxx.xxx(上面自己的邮箱)</span><br><span class="line">The key<span class="string">"s randomart image is:</span></span><br><span class="line"><span class="string">+---[RSA 2048]----+</span></span><br><span class="line"><span class="string">|    +E .         |</span></span><br><span class="line"><span class="string">| ..+oo+          |</span></span><br><span class="line"><span class="string">| oo+*+.o         |</span></span><br><span class="line"><span class="string">|o.*===+o         |</span></span><br><span class="line"><span class="string">|==+*... S        |</span></span><br><span class="line"><span class="string">|B.+.o .o         |</span></span><br><span class="line"><span class="string">|++o. +  .        |</span></span><br><span class="line"><span class="string">| +o.+ .          |</span></span><br><span class="line"><span class="string">|.  o.o           |</span></span><br><span class="line"><span class="string">+----[SHA256]-----+</span></span><br></pre></td></tr></table></figure>
+<p><strong>~/ .ssh 文件夹下，生成两个文件，id_rsa（私有秘钥）和 id_rsa.pub（公有密钥）<br>d_rsa.pub（公有密钥）可上传至远端，免密 push</strong></p>
+
+     <!--畅言PC和WAP自适应版-->
+  
+</article>
+
+        </div>
+      </div>
+      <div id="card">
+        <div class="logo-widget">
+          <div class="author">
+            Utone
+          </div>
+          <div
+            class="logo"
+            style="background-image: url('/images/logo.jpeg')"
+          ></div>
+        </div>
+        <div class="locate-widget">
+          <i class="icon-location"></i>
+        </div>
+        <div class="follow-widget">
+          
+          <a href="https://github.com/shixiaohu2206" target="_block"
+            ><i class="icon-github "></i
+          ></a>
+          
+          <a href="https://github.com/shixiaohu2206" target="_block"
+            ><i class="icon-wechat "></i
+          ></a>
+          
+          <a href="https://github.com/shixiaohu2206" target="_block"
+            ><i class="icon-QQ "></i
+          ></a>
+           
+          <a href="/atom.xml" target="_block"
+            ><i class="icon-rss"></i
+          ></a>
+          
+        </div>
+        
+        <div class="toc-widget">
+          <div class="title">
+            <span>Toc</span>
+          </div>
+          <div class="post-toc">
+            
+          </div>
+        </div>
+        
+        <div class="category-widget">
+          <div class="title">
+            <span>Categories</span>
+            <span><a href="/archives">···</a></span>
+          </div>
+          <div class="list">
+            <ul>
+               
+              <li>
+                <a href="/categories/Code/">
+                  Code
+                </a>
+              </li>
+                
+              <li>
+                <a href="/categories/代码/">
+                  代码
+                </a>
+              </li>
+                
+              <li>
+                <a href="/categories/Note/">
+                  Note
+                </a>
+              </li>
+                
+              <li>
+                <a href="/categories/Daily/">
+                  Daily
+                </a>
+              </li>
+                
+              <li>
+                <a href="/categories/Travel/">
+                  Travel
+                </a>
+              </li>
+                   
+            </ul>
+          </div>
+        </div>
+        <div class="tag-widget">
+          <div class="title">
+            <span>Tag Cloud</span>
+            <span><a href="">···</a></span>
+          </div>
+          <div class="tag-cloud">
+            <a href="/tags/Css/" style="font-size: 13px; color: #4a4a4a">Css</a> <a href="/tags/DvaJs/" style="font-size: 13px; color: #4a4a4a">DvaJs</a> <a href="/tags/ES6/" style="font-size: 13px; color: #4a4a4a">ES6</a> <a href="/tags/Eslint/" style="font-size: 13px; color: #4a4a4a">Eslint</a> <a href="/tags/Float/" style="font-size: 13px; color: #4a4a4a">Float</a> <a href="/tags/Git/" style="font-size: 15.33px; color: #4a4a4a">Git</a> <a href="/tags/JavaScript/" style="font-size: 20px; color: #4a4a4a">JavaScript</a> <a href="/tags/Linux/" style="font-size: 15.33px; color: #4a4a4a">Linux</a> <a href="/tags/MySql/" style="font-size: 13px; color: #4a4a4a">MySql</a> <a href="/tags/Nginx/" style="font-size: 13px; color: #4a4a4a">Nginx</a> <a href="/tags/NodeJS/" style="font-size: 13px; color: #4a4a4a">NodeJS</a> <a href="/tags/PHP/" style="font-size: 17.67px; color: #4a4a4a">PHP</a> <a href="/tags/Promise/" style="font-size: 13px; color: #4a4a4a">Promise</a> <a href="/tags/React/" style="font-size: 15.33px; color: #4a4a4a">React</a> <a href="/tags/SSH/" style="font-size: 13px; color: #4a4a4a">SSH</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script src="https://www.tianqiapi.com/api/?version=v6&callback=weathCb"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.3.6/viewer.js"></script>
+<script src="/scripts/viewer.js"></script>
+<script src="/scripts/index.js"></script>

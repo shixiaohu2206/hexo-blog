@@ -1,0 +1,18 @@
+@media only screen and (max-width: 1080px), only screen and (max-device-width: 1080px) {
+  html,
+  body {
+    font-size: 1rem;
+  }
+}
+@media only screen and (max-width: 960px), only screen and (max-device-width: 960px) {
+  html,
+  body {
+    font-size: 1rem;
+  }
+  #container #card {
+    display: none;
+  }
+  #container .banner {
+    flex-direction: column;
+  }
+}

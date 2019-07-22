@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="baidu-site-verification" content="vvVgSQUzPU" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta name="keywords" content="Utone,博客,个人,utone" />
+    <meta name="description" content="Utone|博客|个人|utones" />
+    <title>Utone</title>
+    <link rel="stylesheet" href="/style/style.css"> <link rel="stylesheet" href="/style/viewer.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.3.6/viewer.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="head">
+      
+      <a href="/">
+        Home
+      </a>
+      
+      <a href="/archives">
+        Archives
+      </a>
+      
+      <a href="/about">
+        About
+      </a>
+      
+    </div>
+    <div id="container">
+      <div id="main">
+        <div class="navbar">
+          <div class="toggle">
+            <i class="icon-align-right"></i>
+          </div>
+          <div class="search">
+            <div class="input-warp">
+              <i class="icon-search"></i>
+              <input type="text" name="" id="" placeholder="Search Keys" />
+            </div>
+          </div>
+        </div>
+        <div class="content">
+          <article class="post-entry">
+    <div class="header">
+      <div class="title">函数防抖、函数节流</div>
+      <div class="date">
+        <i class="icon-calendar"></i>
+        2019/02/14
+      </div>
+    </div>
+    <h1 id="函数消抖（debounce）"><a href="#函数消抖（debounce）" class="headerlink" title="函数消抖（debounce）"></a>函数消抖（debounce）</h1><blockquote>
+<p>当调用函数 n 秒后，才会执行该动作，若在这 n 秒内又调用该函数则将取消前一次并重新计算执行时间</p>
+</blockquote>
+<h2 id="代码原理"><a href="#代码原理" class="headerlink" title="代码原理"></a>代码原理</h2><blockquote>
+<p>设定一个全局变量保存定时器，事件触发时，判断定时器是否存在，存在时，消除定时器，不存在时，重新设定定时器，确保一段时间内，只存在一个定时器。</p>
+</blockquote>
+<h2 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_log</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'log'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_debounce</span>(<span class="params">fn, delay</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> timer = <span class="literal">null</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    timer &amp;&amp; clearTimeout(timer)</span><br><span class="line">    timer = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      fn()</span><br><span class="line">    &#125;, delay)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.onresize = _debounce(_log, <span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="函数节流（throttle）"><a href="#函数节流（throttle）" class="headerlink" title="函数节流（throttle）"></a>函数节流（throttle）</h1><blockquote>
+<p>函数预先设定一个执行周期，当调用动作的时刻大于等于执行周期则执行该动作，然后进入下一个新周期</p>
+</blockquote>
+<h2 id="代码原理-1"><a href="#代码原理-1" class="headerlink" title="代码原理"></a>代码原理</h2><blockquote>
+<p>定义一个时间周期，当调用动作频率小于定义的时间周期，则进入下一周期，不会频繁触发</p>
+</blockquote>
+<h2 id="伪代码-1"><a href="#伪代码-1" class="headerlink" title="伪代码"></a>伪代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_log</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'log'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_throttle</span>(<span class="params">method, duration</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> begin = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _this = <span class="keyword">this</span>,</span><br><span class="line">      _args = <span class="built_in">arguments</span>,</span><br><span class="line">      current = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">    <span class="keyword">if</span> (current - begin &gt;= duration) &#123;</span><br><span class="line">      method.apply(_this, _args)</span><br><span class="line">      begin = current</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.onresize = _throttle(_log, <span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
+
+     <!--畅言PC和WAP自适应版-->
+  
+</article>
+
+        </div>
+      </div>
+      <div id="card">
+        <div class="logo-widget">
+          <div class="author">
+            Utone
+          </div>
+          <div
+            class="logo"
+            style="background-image: url('/images/logo.jpeg')"
+          ></div>
+        </div>
+        <div class="locate-widget">
+          <i class="icon-location"></i>
+        </div>
+        <div class="follow-widget">
+          
+          <a href="https://github.com/shixiaohu2206" target="_block"
+            ><i class="icon-github "></i
+          ></a>
+          
+          <a href="https://github.com/shixiaohu2206" target="_block"
+            ><i class="icon-wechat "></i
+          ></a>
+          
+          <a href="https://github.com/shixiaohu2206" target="_block"
+            ><i class="icon-QQ "></i
+          ></a>
+           
+          <a href="/atom.xml" target="_block"
+            ><i class="icon-rss"></i
+          ></a>
+          
+        </div>
+        
+        <div class="toc-widget">
+          <div class="title">
+            <span>Toc</span>
+          </div>
+          <div class="post-toc">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#函数消抖（debounce）"><span class="toc-text">函数消抖（debounce）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#代码原理"><span class="toc-text">代码原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#伪代码"><span class="toc-text">伪代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#函数节流（throttle）"><span class="toc-text">函数节流（throttle）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#代码原理-1"><span class="toc-text">代码原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#伪代码-1"><span class="toc-text">伪代码</span></a></li></ol></li></ol>
+          </div>
+        </div>
+        
+        <div class="category-widget">
+          <div class="title">
+            <span>Categories</span>
+            <span><a href="/archives">···</a></span>
+          </div>
+          <div class="list">
+            <ul>
+               
+              <li>
+                <a href="/categories/Code/">
+                  Code
+                </a>
+              </li>
+                
+              <li>
+                <a href="/categories/代码/">
+                  代码
+                </a>
+              </li>
+                
+              <li>
+                <a href="/categories/Note/">
+                  Note
+                </a>
+              </li>
+                
+              <li>
+                <a href="/categories/Daily/">
+                  Daily
+                </a>
+              </li>
+                
+              <li>
+                <a href="/categories/Travel/">
+                  Travel
+                </a>
+              </li>
+                   
+            </ul>
+          </div>
+        </div>
+        <div class="tag-widget">
+          <div class="title">
+            <span>Tag Cloud</span>
+            <span><a href="">···</a></span>
+          </div>
+          <div class="tag-cloud">
+            <a href="/tags/Css/" style="font-size: 13px; color: #4a4a4a">Css</a> <a href="/tags/DvaJs/" style="font-size: 13px; color: #4a4a4a">DvaJs</a> <a href="/tags/ES6/" style="font-size: 13px; color: #4a4a4a">ES6</a> <a href="/tags/Eslint/" style="font-size: 13px; color: #4a4a4a">Eslint</a> <a href="/tags/Float/" style="font-size: 13px; color: #4a4a4a">Float</a> <a href="/tags/Git/" style="font-size: 15.33px; color: #4a4a4a">Git</a> <a href="/tags/JavaScript/" style="font-size: 20px; color: #4a4a4a">JavaScript</a> <a href="/tags/Linux/" style="font-size: 15.33px; color: #4a4a4a">Linux</a> <a href="/tags/MySql/" style="font-size: 13px; color: #4a4a4a">MySql</a> <a href="/tags/Nginx/" style="font-size: 13px; color: #4a4a4a">Nginx</a> <a href="/tags/NodeJS/" style="font-size: 13px; color: #4a4a4a">NodeJS</a> <a href="/tags/PHP/" style="font-size: 17.67px; color: #4a4a4a">PHP</a> <a href="/tags/Promise/" style="font-size: 13px; color: #4a4a4a">Promise</a> <a href="/tags/React/" style="font-size: 15.33px; color: #4a4a4a">React</a> <a href="/tags/SSH/" style="font-size: 13px; color: #4a4a4a">SSH</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script src="https://www.tianqiapi.com/api/?version=v6&callback=weathCb"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.3.6/viewer.js"></script>
+<script src="/scripts/viewer.js"></script>
+<script src="/scripts/index.js"></script>
