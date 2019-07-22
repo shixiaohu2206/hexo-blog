@@ -143,3 +143,6 @@ a {
 #pop_ad {
   transform: scale(0) !important;
 }
+* {
+  -webkit-overflow-scrolling: touch;
+}

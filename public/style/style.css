@@ -150,6 +150,9 @@ a {
 #pop_ad {
   transform: scale(0) !important;
 }
+* {
+  -webkit-overflow-scrolling: touch;
+}
 @font-face {
   font-family: 'California-Medium';
   src: url("../font/California-Medium.woff2") format('woff2');
