@@ -27,8 +27,6 @@ $result=mysql_query("SELECT id,name FROM 数据库表");
 $row=mysql_fetch_row($result);
 ```
 
-<!--more-->
-
 ## 面向对象连接
 
 ```php

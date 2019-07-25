@@ -5,7 +5,7 @@ tags:
   - React
   - JavaScript
 categories:
-  - 代码
+  - Code
 ---
 
 ### Demo

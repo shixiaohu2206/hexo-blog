@@ -18,5 +18,3 @@ function isPromise(obj) {
   )
 }
 ```
-
-<!--more-->

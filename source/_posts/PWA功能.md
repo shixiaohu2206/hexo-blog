@@ -7,11 +7,11 @@ categories:
   - Code
 ---
 
+## PWA
+
 ### 介绍
 
 > PWA（Progressive Web App）, 即渐进式 web 应用。PWA 本质上是 web 应用，目的是通过多项新技术，在安全、性能、体验等方面给用户原生应用的体验。而且无需像原生应用那样繁琐的下载、安装、升级等操作。
-
-<!--more-->
 
 打开`chrome://inspect/#service-workers`可查看 chrome 当前运行的 service worker
 
