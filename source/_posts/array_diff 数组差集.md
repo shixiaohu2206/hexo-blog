@@ -1,10 +1,11 @@
 ---
 title: array_diff 数组差集
-date: 2018-08-15
 tags:
   - PHP
 categories:
-  - 代码
+  - Code
+abbrlink: 34942
+date: 2018-08-15 00:00:00
 ---
 
 ## array_diff

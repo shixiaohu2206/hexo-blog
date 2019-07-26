@@ -1,11 +1,12 @@
 ---
 title: Eslint 配置参数说明
-date: 2019-04-15 17:39:06
 tags:
   - JavaScript
   - Eslint
 categories:
   - Code
+abbrlink: 16860
+date: 2019-04-15 17:39:06
 ---
 
 ### Eslint 配置参数说明
@@ -13,8 +14,6 @@ categories:
 - 0 或’off’：关闭规则。
 - 1 或’warn’：打开规则，并且作为一个警告（并不会导致检查不通过）。
 - 2 或’error’：打开规则，并且作为一个错误 (退出码为 1，检查不通过)。
-
-<!--more-->
 
 ### ESLint 常用配置
 

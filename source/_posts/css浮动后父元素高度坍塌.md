@@ -1,11 +1,12 @@
 ---
 title: css浮动后父元素高度坍塌
-date: 2018-10-17 23:21:38
 tags:
   - Css
   - Float
 categories:
   - Code
+abbrlink: 53956
+date: 2018-10-17 23:21:38
 ---
 
 ```css

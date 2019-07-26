@@ -1,11 +1,12 @@
 ---
 title: git生成ssh秘钥
-date: 2017-10-20
 tags:
   - Git
   - SSH
 categories:
   - Code
+abbrlink: 11568
+date: 2017-10-20 00:00:00
 ---
 
 ```bash

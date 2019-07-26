@@ -1,10 +1,11 @@
 ---
 title: VSCode常用插件
-date: 2018-08-15
 tags:
   - VsCode
 categories:
   - Note
+abbrlink: 18925
+date: 2018-08-15 00:00:00
 ---
 
 - Annotator

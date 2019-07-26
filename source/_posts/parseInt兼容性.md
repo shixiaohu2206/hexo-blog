@@ -1,10 +1,11 @@
 ---
 title: parseInt兼容性
-date: 2018-09-11
 tags:
   - JavaScript
 categories:
   - Code
+abbrlink: 22541
+date: 2018-09-11 00:00:00
 ---
 
 ```js

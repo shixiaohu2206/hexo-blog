@@ -1,11 +1,12 @@
 ---
 title: PHP连接MySql常用方法
-date: 2017-11-30
 tags:
   - PHP
   - MySql
 categories:
   - Code
+abbrlink: 16459
+date: 2017-11-30 00:00:00
 ---
 
 ## 面向过程连接
@@ -26,8 +27,6 @@ $result=mysql_query("SELECT id,name FROM 数据库表");
 // 提取数据
 $row=mysql_fetch_row($result);
 ```
-
-<!--more-->
 
 ## 面向对象连接
 

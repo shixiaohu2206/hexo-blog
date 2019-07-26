@@ -1,10 +1,11 @@
 ---
 title: git新建远程版本库
-date: 2018-08-15
 tags:
   - Git
 categories:
   - Code
+abbrlink: 57915
+date: 2018-08-15 00:00:00
 ---
 
 ## 前提为已安装好 git

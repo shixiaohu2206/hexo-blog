@@ -1,19 +1,18 @@
 ---
 title: Linux安装NodeJS
-date: 2017-10-18
 tags:
   - JavaScript
   - NodeJS
   - Linux
 categories:
   - Code
+abbrlink: 41948
+date: 2017-10-18 00:00:00
 ---
 
 ## 安装 NodeJS
 
 > 首先下载 node 安装包，下载编译好的，下载完毕，解压后，直接软连接设置成全局，即可使用
-
-<!--more-->
 
 ```bash
 #进入安装包放置的位置

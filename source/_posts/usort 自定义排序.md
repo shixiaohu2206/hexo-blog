@@ -1,17 +1,16 @@
 ---
 title: usort自定义排序
-date: 2018-09-25
 tags:
   - PHP
 categories:
   - Code
+abbrlink: 4903
+date: 2018-09-25 00:00:00
 ---
 
 ## usort 自定义排序
 
 > 工作上需要对 php 数组自定义排序，使用了 usort 函数，但若比较参数中，出现空字符串时，这样含有空字符串的元素就是拍在前面
-
-<!--more-->
 
 ```php
 $demo = ["3", "2" ,"", "5", ""];

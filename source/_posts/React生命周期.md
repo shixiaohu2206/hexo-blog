@@ -1,11 +1,12 @@
 ---
 title: React生命周期
-date: 2018-09-07
 tags:
   - React
   - JavaScript
 categories:
-  - 代码
+  - Code
+abbrlink: 38908
+date: 2018-09-07 00:00:00
 ---
 
 ### Demo

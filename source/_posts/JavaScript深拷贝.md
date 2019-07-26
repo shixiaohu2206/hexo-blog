@@ -1,15 +1,14 @@
 ---
 title: JavaScript深拷贝
-date: 2018-10-17
 tags:
   - JavaScript
 categories:
   - Code
+abbrlink: 29945
+date: 2018-10-17 00:00:00
 ---
 
 1. slice 和 concat 这两个方法，仅适用于对不包含引用对象的一维数组的深拷贝，对于对象数组的操作，还是浅拷贝
-
-<!--more-->
 
 2. JSON 对象的 parse 和 stringify （对象中不含有函数的话。JSON 解析反解析就行了,对于有函数属性的话，不起作用，会直接去除 function）
 3. `$.extend( [deep]`, `target`, `object1 [, objectN] )` jquery 的方法 `extend b=$.extend(true,[],a)`;
