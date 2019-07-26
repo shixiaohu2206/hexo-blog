@@ -1,11 +1,12 @@
 ---
 title: Eslint 配置参数说明
-date: 2019-04-15 17:39:06
 tags:
   - JavaScript
   - Eslint
 categories:
   - Code
+abbrlink: 16860
+date: 2019-04-15 17:39:06
 ---
 
 ### Eslint 配置参数说明

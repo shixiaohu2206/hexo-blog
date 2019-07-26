@@ -1,10 +1,11 @@
 ---
 title: PWA功能
-date: 2019-06-14 19:14:06
 tags:
   - JavaScript
 categories:
   - Code
+abbrlink: 22121
+date: 2019-06-14 19:14:06
 ---
 
 ## PWA

@@ -1,11 +1,12 @@
 ---
 title: 判断函数是否是Promise函数
-date: 2018-09-29
 tags:
   - JavaScript
   - Promise
 categories:
   - Code
+abbrlink: 25453
+date: 2018-09-29 00:00:00
 ---
 
 ```javascript

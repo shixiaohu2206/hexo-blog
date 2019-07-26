@@ -1,12 +1,13 @@
 ---
 title: Linux安装NodeJS
-date: 2017-10-18
 tags:
   - JavaScript
   - NodeJS
   - Linux
 categories:
   - Code
+abbrlink: 41948
+date: 2017-10-18 00:00:00
 ---
 
 ## 安装 NodeJS

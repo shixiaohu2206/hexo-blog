@@ -1,10 +1,11 @@
 ---
 title: slice、splice、split异同
-date: 2017-11-01
 tags:
   - JavaScript
 categories:
   - Code
+abbrlink: 61300
+date: 2017-11-01 00:00:00
 ---
 
 ## arguments 参数

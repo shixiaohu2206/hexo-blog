@@ -1,10 +1,11 @@
 ---
 title: hasOwnProperty原型链方法
-date: 2018-10-17 23:17:02
 tags:
   - JavaScript
 categories:
   - Code
+abbrlink: 62112
+date: 2018-10-17 23:17:02
 ---
 
 ```js

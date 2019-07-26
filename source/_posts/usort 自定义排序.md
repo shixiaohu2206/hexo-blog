@@ -1,10 +1,11 @@
 ---
 title: usort自定义排序
-date: 2018-09-25
 tags:
   - PHP
 categories:
   - Code
+abbrlink: 4903
+date: 2018-09-25 00:00:00
 ---
 
 ## usort 自定义排序

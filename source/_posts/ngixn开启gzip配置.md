@@ -1,11 +1,12 @@
 ---
 title: Nginx开启gzip配置
-date: 2019-02-01
 tags:
   - Nginx
   - Linux
 categories:
   - Code
+abbrlink: 34456
+date: 2019-02-01 00:00:00
 ---
 
 ## Nginx 开启 gzip 配置

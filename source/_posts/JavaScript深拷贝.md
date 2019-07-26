@@ -1,10 +1,11 @@
 ---
 title: JavaScript深拷贝
-date: 2018-10-17
 tags:
   - JavaScript
 categories:
   - Code
+abbrlink: 29945
+date: 2018-10-17 00:00:00
 ---
 
 1. slice 和 concat 这两个方法，仅适用于对不包含引用对象的一维数组的深拷贝，对于对象数组的操作，还是浅拷贝
