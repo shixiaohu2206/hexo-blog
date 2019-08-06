@@ -4,7 +4,7 @@
 
 # Site
 title: Utone
-subtitle: Utone|虎虎|博客|个人|utone
+subtitle: 虎虎
 description: Utone|虎虎|博客|个人|utone
 keywords: Utone,虎虎,博客,个人,utone
 author: Utone
@@ -78,10 +78,16 @@ theme: huhu
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  # repository: https://github.com/shixiaohu2206/shixiaohu2206.github.io.git
-  repository: http://gogs.utone.xyz/shixiaohu2206/shixiaohu2206.github.io.git
-  branch: master
+  # - type: git
+  #   repository: git@github.com:shixiaohu2206/shixiaohu2206.github.io.git
+  #   branch: master
+  - type: git
+    # repository: git@git.dev.tencent.com:shixiaohu2206/shixiaohu2206.git
+    repository: https://git.dev.tencent.com/shixiaohu2206/shixiaohu2206.git
+    branch: master
+  # - type: git
+  #   repository: http://gogs.utone.xyz/shixiaohu2206/blog-pages.git
+  #   branch: master
 
 admin:
   username: utone
