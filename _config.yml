@@ -4,16 +4,16 @@
 
 # Site
 title: Utone
-subtitle: Utone|博客|个人|utone
-description: Utone|博客|个人|utone
-keywords: Utone,博客,个人,utone
+subtitle: Utone|虎虎|博客|个人|utone
+description: Utone|虎虎|博客|个人|utone
+keywords: Utone,虎虎,博客,个人,utone
 author: Utone
 language: zh-CN
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://blog.utone.xyz
+url: https://blog.utone.xyz
 root: /
 permalink: /:year:month:day:abbrlink/
 permalink_defaults:
@@ -79,7 +79,8 @@ theme: huhu
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://github.com/shixiaohu2206/shixiaohu2206.github.io.git
+  # repository: https://github.com/shixiaohu2206/shixiaohu2206.github.io.git
+  repository: http://gogs.utone.xyz/shixiaohu2206/shixiaohu2206.github.io.git
   branch: master
 
 admin:
@@ -97,3 +98,9 @@ feed:
   content_limit_delim: ''
   order_by: -date
   icon: icon.png
+
+#sitemap
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
