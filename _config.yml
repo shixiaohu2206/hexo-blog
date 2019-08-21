@@ -115,3 +115,21 @@ baidusitemap:
 nofollow:
   enable: true
   exclude:
+
+#valine评论
+valine:
+  API_ID: 'FjXColpwTL0BsrjJIN8Pmnn0-gzGzoHsz'
+  API_KEY: 'Ar7tucPRn3KV7UOidQxESoys'
+
+#google-site-verification
+google_site_verification: 'VQowHv5lAVVWJxjKI9bnAWT7NGdOrfS5KnLF07-B7w0'
+
+#google gtm
+gtm_id: 'GTM-WJ7P5KL'
+
+#畅言评论
+changyan:
+  # appid: 'cytOueKrt'
+  # conf: 'prod_0650a81510b1c16dd4c6b8d447948595'
+  appid: ''
+  conf: ''
