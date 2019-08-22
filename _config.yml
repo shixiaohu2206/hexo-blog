@@ -127,6 +127,9 @@ google_site_verification: 'VQowHv5lAVVWJxjKI9bnAWT7NGdOrfS5KnLF07-B7w0'
 #google gtm
 gtm_id: 'GTM-WJ7P5KL'
 
+#google gtm
+google_ad_client: 'ca-pub-9618079338040236'
+
 #畅言评论
 changyan:
   # appid: 'cytOueKrt'
