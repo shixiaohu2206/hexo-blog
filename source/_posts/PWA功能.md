@@ -16,6 +16,8 @@ date: 2019-06-14 19:14:06
 
 打开`chrome://inspect/#service-workers`可查看 chrome 当前运行的 service worker
 
+<!-- more -->
+
 ### 核心技术
 
 > Service Worker 是 PWA 的核心技术
@@ -44,10 +46,7 @@ if ('serviceWorker' in navigator) {
       .register('/sw.js')
       .then(function(registration) {
         // 注册成功
-        console.log(
-          'ServiceWorker registration successful with scope: ',
-          registration.scope
-        )
+        console.log('ServiceWorker registration successful with scope: ', registration.scope)
       })
       .catch(function(err) {
         // 注册失败:(
@@ -65,9 +64,7 @@ if ('serviceWorker' in navigator) {
 var CACHE_VERSION = 'sw_v8'
 var CACHE_FILES = ['/js/jquery/min.js', '/js/zui/min.js', '/js/chanzhi.js']
 self.addEventListener('install', function(event) {
-  event.waitUntil(
-    caches.open(CACHE_VERSION).then(cache => cache.addAll(CACHE_FILES))
-  )
+  event.waitUntil(caches.open(CACHE_VERSION).then(cache => cache.addAll(CACHE_FILES)))
 })
 ```
 

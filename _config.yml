@@ -78,9 +78,9 @@ theme: huhu
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  # - type: git
-  #   repository: git@github.com:shixiaohu2206/shixiaohu2206.github.io.git
-  #   branch: master
+  - type: git
+    repository: git@github.com:shixiaohu2206/shixiaohu2206.github.io.git
+    branch: master
   - type: git
     repository: git@git.dev.tencent.com:shixiaohu2206/shixiaohu2206.git
     branch: master
@@ -126,7 +126,7 @@ google_site_verification: 'VQowHv5lAVVWJxjKI9bnAWT7NGdOrfS5KnLF07-B7w0'
 #google gtm
 gtm_id: 'GTM-WJ7P5KL'
 
-#google gtm
+#google_ad_client
 google_ad_client: 'ca-pub-9618079338040236'
 
 #百度联盟验证
@@ -143,3 +143,9 @@ changyan:
 weather:
   appid: '38324244'
   appsecret: 'i2AYPqlP'
+
+#algolia
+algolia:
+  applicationID: 'UL5U4KF7NA'
+  apiKey: 'cb0ba3563c92ba60965c89cce8c69077'
+  indexName: Utone
