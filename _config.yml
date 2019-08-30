@@ -149,3 +149,29 @@ algolia:
   applicationID: 'UL5U4KF7NA'
   apiKey: 'cb0ba3563c92ba60965c89cce8c69077'
   indexName: Utone
+
+#swiftype
+swiftype:
+  appKey: 'VA99h4R2A6LyDstvxzDm'
+
+# 站内搜索生成文件配置 https://github.com/alexbruno/hexo-generator-json-content
+jsonContent:
+  meta: false
+  pages: false
+  file: content.json
+  dateFormat: 'Y-m-d H:i'
+  posts:
+    title: true
+    date: true
+    path: true
+    text: true
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: true
+    excerpt: false
+    categories: false
+    tags: true
