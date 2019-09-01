@@ -160,18 +160,3 @@ jsonContent:
   pages: false
   file: content.json
   dateFormat: 'Y-m-d H:i'
-  posts:
-    title: true
-    date: true
-    path: true
-    text: true
-    raw: false
-    content: false
-    slug: false
-    updated: false
-    comments: false
-    link: false
-    permalink: true
-    excerpt: false
-    categories: false
-    tags: true
