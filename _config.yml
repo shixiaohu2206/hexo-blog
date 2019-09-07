@@ -160,3 +160,5 @@ jsonContent:
   pages: false
   file: content.json
   dateFormat: 'Y-m-d H:i'
+
+#"hexo-all-minifier": "^0.5.3",

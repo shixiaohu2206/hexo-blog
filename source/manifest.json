@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "short_name": "虎虎",
   "start_url": "/?from=homescreen",
-  "display": "fullscreen",
+  "display": "minimal-ui",
   "description": "Utone|虎虎|博客|个人|utone",
   "background_color": "#fff",
   "icons": [
@@ -14,22 +14,22 @@
       "type": "image/png"
     },
     {
-      "src": "screen/icon-72x72.png",
+      "src": "screen/icon-48x48.png",
       "sizes": "72x72",
       "type": "image/png"
     },
     {
-      "src": "screen/icon-96x96.png",
+      "src": "screen/icon-48x48.png",
       "sizes": "96x96",
       "type": "image/png"
     },
     {
-      "src": "screen/icon-144x144.png",
+      "src": "screen/icon-48x48.png",
       "sizes": "144x144",
       "type": "image/png"
     },
     {
-      "src": "screen/icon-hd.png",
+      "src": "screen/icon-48x48.png",
       "sizes": "168x168 192x192 256x256",
       "type": "image/png"
     }
