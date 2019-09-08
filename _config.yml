@@ -145,7 +145,7 @@ weather:
   appsecret: 'i2AYPqlP'
 
 #algolia
-algolia:
+algoliasearch:
   applicationID: 'UL5U4KF7NA'
   apiKey: 'cb0ba3563c92ba60965c89cce8c69077'
   indexName: Utone

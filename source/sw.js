@@ -1,13 +1,16 @@
 // version
-var VERSION = '1.0.1'
+var VERSION = '1.0.0'
 // pre cache name
 var PRE_CACHE_NAME = 'HUHU_PRE_CACHE_' + VERSION
 // white cache name
 var WHITE_CACHE_NAME = 'HUHU_WHITE_CACHE_' + VERSION
-// 需要预缓存文件
+// 是否缓存当前源的文件
+var CACHE_SAME_ORIGIN_FILE = false
+// 需要预缓存文件,只能是同源的文件
 var PRE_CACHE_FILES = [
   // html
   '/',
+  '/404.html',
 
   // css
   '/style/style.css',
@@ -26,10 +29,9 @@ var PRE_CACHE_FILES = [
   '/scripts/cdn/Valine.min.js',
 
   // font
-  '/font/demo.woff2',
-  // '/font/demo2.woff2`'
+  '/font/demo.woff2'
 ]
-// 白名单缓存文件，不能所有请求都做缓存，cache会爆炸，可缓存一些cdn文件
+// 白名单缓存文件，不能所有请求都做缓存，cache会爆炸
 var WHITE_CACHE_FILES = [
   'css.min.js',
   'av-min.js',
@@ -37,12 +39,14 @@ var WHITE_CACHE_FILES = [
   'jquery.min.js',
   'jquery.pjax.min.js',
   'jquery-confirm.min.js',
-  'jquery.fancybox.min.js'
+  'jquery.fancybox.min.js',
+  'search_children.js'
 ]
 
 // 监听message
 self.addEventListener('message', function(event) {
   console.log('sw receive message---', event.data)
+  event.waitUntil(Promise.all([deleteCache(), fetchPreCache()]))
 })
 
 // sw.js被安装时会触发 install 事件
@@ -52,17 +56,11 @@ self.addEventListener('install', event => {
    * 但是建议只做一些轻量级和非常重要资源的缓存，减少安装失败的概率
    * 安装成功后 ServiceWorker 状态会从 installing 变为 installed
    */
-  event.waitUntil(
-    Promise.all([
-      // 执行skipWaiting跳过waiting状态，进入activate状态
-      self.skipWaiting(),
-      fetchPreCache()
-    ])
-  )
+  event.waitUntil(self.skipWaiting()) // 执行skipWaiting跳过waiting状态，进入activate状态
 })
 
 // 监听activate
-self.addEventListener('activate', event =>
+self.addEventListener('activate', event => {
   event.waitUntil(
     Promise.all([
       // 当一个 service worker 被初始注册时
@@ -73,7 +71,7 @@ self.addEventListener('activate', event =>
       deleteCache()
     ])
   )
-)
+})
 
 function fetchCacheFile(path, cache) {
   return cache.add(path).catch(error => {
@@ -97,7 +95,7 @@ function fetchPreCache() {
         console.time(`fetch pre file used time:`)
 
         return Promise.all(promiseArr)
-          .then(() => console.log('pre cache file success----'))
+          .then(() => console.log('pre cache file success'))
           .catch(e => {
             console.warn('pre cache file failed----', e || {})
             return Promise.resolve()
@@ -118,6 +116,7 @@ function deleteCache() {
     return Promise.all(
       list.map(key => {
         if (!~key.indexOf(VERSION)) {
+          console.log('delete sw key---', key)
           return caches.delete(key).catch(e => {
             console.log('delete sw cache failed----', e || {})
             return Promise.resolve()
@@ -131,10 +130,6 @@ function deleteCache() {
 
 // 监听所有scope下的网络请求
 self.addEventListener('fetch', event => {
-  if (event.request.cache === 'only-if-cached' && event.request.mode !== 'same-origin') {
-    return
-  }
-
   event.respondWith(
     caches.match(event.request).then(resp => {
       // 返回缓存中命中的文件
@@ -143,11 +138,7 @@ self.addEventListener('fetch', event => {
       }
 
       var respToFetch = event.request.clone()
-      if (navigator.onLine) {
-        return onlineRequest(respToFetch) // 如果为联网状态
-      } else {
-        return offlineRequest(respToFetch) // 如果为离线状态
-      }
+      return onlineRequest(respToFetch)
     })
   )
 })
@@ -156,8 +147,6 @@ self.addEventListener('fetch', event => {
 function onlineRequest(respToFetch) {
   var options = {}
 
-  console.log('respToFetch', respToFetch)
-
   respToFetch &&
     respToFetch.request &&
     respToFetch.request.mode === 'cors' &&
@@ -165,13 +154,16 @@ function onlineRequest(respToFetch) {
 
   return fetch(respToFetch, options)
     .then(response => {
-      if (
+      // 成功的GET请求
+      let succeedGetResp =
         response &&
         (response.status === 0 || response.status === 200) &&
-        respToFetch.method === 'GET' &&
+        respToFetch.method === 'GET'
+
+      if (
+        succeedGetResp &&
         (matchWhiteCache(respToFetch.url) ||
-          (respToFetch.credentials === 'same-origin' &&
-            (respToFetch.destination === 'image' || respToFetch.destination === 'font')))
+          (CACHE_SAME_ORIGIN_FILE && matchSameOrigin(respToFetch.url)))
       ) {
         var respToCache = response.clone()
         caches.open(WHITE_CACHE_NAME).then(cache => {
@@ -182,11 +174,18 @@ function onlineRequest(respToFetch) {
 
       return response
     })
-    .catch(e => {
-      console.warn('fetch failed----', e)
-      // 获取失败，离线资源降级替换
-      // offlineRequest(fetchRequest)
-    })
+    .catch(e => console.warn('fetch failed----', e))
+}
+
+/**
+ * 缓存同源的文件
+ */
+function matchSameOrigin(url) {
+  // 匹配访问地址开头是否是当前origin
+  if (url && url.indexOf(location.origin) === 0) {
+    return true
+  }
+  return false
 }
 
 /**
@@ -206,18 +205,6 @@ function matchWhiteCache(url) {
     }
   }
   return flag
-}
-
-// 离线状态下执行，降级替换
-function offlineRequest(request) {
-  // 使用离线图片
-  // if (request.url.match(/\.(png|gif|jpg)/i)) {
-  //   return caches.match('/images/offline.png')
-  // }
-  // // 使用离线页面
-  // if (request.url.match(/\.html$/)) {
-  //   return caches.match('/test/offline.html')
-  // }
 }
 
 // 监听error
