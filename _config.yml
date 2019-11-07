@@ -1,0 +1,213 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: Utone
+subtitle: 虎虎
+description: Utone|虎虎|博客|个人|utone
+keywords: Utone,虎虎,博客,个人,utone
+author: Utone
+language: zh-CN
+timezone:
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: https://blog.utone.xyz
+root: /
+permalink: /:year:month:day:abbrlink/
+permalink_defaults:
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+filename_case: 0
+render_drafts: false
+post_asset_folder: true # 文章资源文件夹 {% asset_img example.jpg This is an example image %}
+relative_link: false
+future: true
+highlight:
+  enable: true
+  hljs: true
+  line_number: false
+  auto_detect: false
+  tab_replace:
+
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+  path: ''
+  per_page: 12
+  order_by: -date
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 20
+pagination_dir: page
+
+# Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/ landscape
+theme: huhu
+
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  - type: git
+    repository: https://{GITHUB_TOKEN}@github.com/shixiaohu2206/shixiaohu2206.github.io.git
+    branch: master
+  - type: git
+    repository: https://{TENCENT_USERNAME}:{TENCENT_TOKEN}@git.dev.tencent.com/shixiaohu2206/shixiaohu2206.git
+    branch: master
+
+#rss
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
+  content_limit: 140
+  content_limit_delim: ''
+  order_by: -date
+  icon: icon.png
+
+#sitemap
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
+
+#nofollow
+nofollow:
+  enable: true
+  exclude:
+
+#valine评论
+valine:
+  API_ID: 'FjXColpwTL0BsrjJIN8Pmnn0-gzGzoHsz'
+  API_KEY: 'Ar7tucPRn3KV7UOidQxESoys'
+
+#google-site-verification
+google_site_verification: 'VQowHv5lAVVWJxjKI9bnAWT7NGdOrfS5KnLF07-B7w0'
+
+# 百度站点验证码
+baidu_site_verification: vvVgSQUzPU
+
+#百度联盟验证
+baidu_union_verify: 'e41bcda632ad60427602fc274753bb7f'
+
+#google gtm
+gtm_id: 'GTM-WJ7P5KL'
+
+#google_ad_client
+google_ad_client: 'ca-pub-9618079338040236'
+
+#畅言评论
+changyan:
+  # appid: 'cytOueKrt'
+  # conf: 'prod_0650a81510b1c16dd4c6b8d447948595'
+  appid: ''
+  conf: ''
+
+#天气api账户 https://www.tianqiapi.com
+weather:
+  appid: '38324244'
+  appsecret: 'i2AYPqlP'
+
+#algolia
+algoliasearch:
+  # applicationID: 'UL5U4KF7NA'
+  # apiKey: 'cb0ba3563c92ba60965c89cce8c69077'
+  # indexName: Utone
+  applicationID: ''
+  apiKey: ''
+  indexName: ''
+
+#swiftype
+swiftype:
+  appKey: ''
+  # appKey: 'VA99h4R2A6LyDstvxzDm'
+
+#站内搜索生成文件配置 https://github.com/alexbruno/hexo-generator-json-content
+jsonContent:
+  dateFormat: YYYY/MM/DD
+  pages: false
+  posts:
+    photos: true
+    title: true
+    slug: true
+    date: true
+    updated: true
+    comments: true
+    path: true
+    link: true
+    permalink: true
+    excerpt: true
+    keywords: false
+    text: true
+    raw: false
+    content: false
+    author: true
+    categories: true
+    tags: true
+  file: content.json
+
+#友情链接
+friends:
+  - name: Don Lex
+    time: '2019-10-12'
+    url: 'https://www.donlex.cn/'
+    logo: 'https://www.donlex.cn/images/avatar.png'
+    intro: '码农'
+  - name: Morty
+    time: '2019-10-12'
+    url: 'https://www.imcyc.cn'
+    logo: 'https://s.gravatar.com/avatar/6e9164b08cc215816e6381d5f9f70b58?s=80'
+    intro: 'CS随笔'
+
+#影片
+movie:
+  - name: '流浪地球'
+    img: 'https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2545472803.webp'
+    url: 'https://movie.douban.com/subject/26266893/?tag=%E7%83%AD%E9%97%A8&from=gaia_video'
+  - name: '头号玩家 Ready Player One'
+    img: 'https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2516578307.webp'
+    url: 'https://movie.douban.com/subject/4920389/?from=subject-page'
+  - name: '黑客帝国 The Matrix'
+    img: 'https://img1.doubanio.com/view/photo/s_ratio_poster/public/p451926968.webp'
+    url: 'https://movie.douban.com/subject/1291843/?from=subject-page'
+  - name: '盗梦空间 Inception'
+    img: 'https://img3.doubanio.com/view/photo/s_ratio_poster/public/p513344864.webp'
+    url: 'https://movie.douban.com/subject/3541415/?from=subject-page'
+
+#相册
+album:
+  - url: 'https://scontent-hkg3-2.cdninstagram.com/vp/191e6b11178d3b33b0caacde6432ffe4/5E35AC5F/t51.2885-15/e35/s320x320/67982115_371962100367727_5693230143316027671_n.jpg?_nc_ht=scontent-hkg3-2.cdninstagram.com&_nc_cat=107'
+  - url: 'https://scontent-hkg3-2.cdninstagram.com/vp/191e6b11178d3b33b0caacde6432ffe4/5E35AC5F/t51.2885-15/e35/s320x320/67982115_371962100367727_5693230143316027671_n.jpg?_nc_ht=scontent-hkg3-2.cdninstagram.com&_nc_cat=107'

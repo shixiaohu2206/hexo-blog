@@ -1,0 +1,34 @@
+#使用语言
+language: node_js
+#node版本
+node_js:
+  - 8
+#指定缓存模块
+cache:
+  directories:
+    - node_modules
+#监听分支
+branches:
+  only:
+    - master
+#下载主题
+before_install:
+  - git clone https://github.com/shixiaohu2206/hexo-theme-huhu.git themes/huhu
+install:
+  - npm install
+script:
+  - hexo clean
+  - hexo generate
+after_script:
+  - git config user.name "Utone"
+  - git config user.email "asjdr123@163.com"
+  - sed -i "s/{GITHUB_TOKEN}/${GITHUB_TOKEN}/g" ./_config.yml
+  - sed -i "s/{TENCENT_TOKEN}/${TENCENT_TOKEN}/g" ./_config.yml
+  - sed -i "s/{TENCENT_USERNAME}/${TENCENT_USERNAME}/g" ./_config.yml
+  - hexo deploy
+#通知
+notifications:
+  email:
+    - asjdr123@163.com
+  on_success: change
+  on_failure: always
