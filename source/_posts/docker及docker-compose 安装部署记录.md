@@ -153,7 +153,7 @@ networks:
 
 因为每次重装应用后，docker 容器内的网络 IP 会改变，目前有两种方案：
 
-1. 使用容器名作为 host，因为容器是定义好的，不会改变
+1. 使用容器名作为 host，因为容器名是定义好的，不会改变
 2. 用 docker 静态 IP ，是容器 IP 固定
 
 ```nginx
@@ -166,6 +166,7 @@ server {
         proxy_set_header Host  $http_host;
         proxy_set_header X-Nginx-Proxy true;
         proxy_set_header Connection "";
+        client_max_body_size 100m; #上传文件大小限制
         proxy_pass      http://api:7001;
 
     }

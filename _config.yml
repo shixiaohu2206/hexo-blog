@@ -131,53 +131,25 @@ google_ad_client: 'ca-pub-9618079338040236'
 
 #畅言评论
 changyan:
-  # appid: 'cytOueKrt'
-  # conf: 'prod_0650a81510b1c16dd4c6b8d447948595'
   appid: ''
   conf: ''
-
-#天气api账户 https://www.tianqiapi.com
-weather:
-  appid: '38324244'
-  appsecret: 'i2AYPqlP'
-
-#algolia
-algoliasearch:
-  # applicationID: 'UL5U4KF7NA'
-  # apiKey: 'cb0ba3563c92ba60965c89cce8c69077'
-  # indexName: Utone
-  applicationID: ''
-  apiKey: ''
-  indexName: ''
 
 #swiftype
 swiftype:
   appKey: ''
-  # appKey: 'VA99h4R2A6LyDstvxzDm'
 
-#站内搜索生成文件配置 https://github.com/alexbruno/hexo-generator-json-content
+#https://github.com/alexbruno/hexo-generator-json-content
 jsonContent:
   dateFormat: YYYY/MM/DD
   pages: false
   posts:
-    photos: true
-    title: true
-    slug: true
-    date: true
-    updated: true
-    comments: true
-    path: true
-    link: true
-    permalink: true
-    excerpt: true
-    keywords: false
-    text: true
-    raw: false
-    content: false
-    author: true
-    categories: true
     tags: true
-  file: content.json
+    title: true
+    date: true
+    text: true
+    permalink: true
+    photos: true
+    file: content.json
 
 #友情链接
 friends:
@@ -191,23 +163,3 @@ friends:
     url: 'https://www.imcyc.cn'
     logo: 'https://s.gravatar.com/avatar/6e9164b08cc215816e6381d5f9f70b58?s=80'
     intro: 'CS随笔'
-
-#影片
-movie:
-  - name: '流浪地球'
-    img: 'https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2545472803.webp'
-    url: 'https://movie.douban.com/subject/26266893/?tag=%E7%83%AD%E9%97%A8&from=gaia_video'
-  - name: '头号玩家 Ready Player One'
-    img: 'https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2516578307.webp'
-    url: 'https://movie.douban.com/subject/4920389/?from=subject-page'
-  - name: '黑客帝国 The Matrix'
-    img: 'https://img1.doubanio.com/view/photo/s_ratio_poster/public/p451926968.webp'
-    url: 'https://movie.douban.com/subject/1291843/?from=subject-page'
-  - name: '盗梦空间 Inception'
-    img: 'https://img3.doubanio.com/view/photo/s_ratio_poster/public/p513344864.webp'
-    url: 'https://movie.douban.com/subject/3541415/?from=subject-page'
-
-#相册
-album:
-  - url: 'https://scontent-hkg3-2.cdninstagram.com/vp/191e6b11178d3b33b0caacde6432ffe4/5E35AC5F/t51.2885-15/e35/s320x320/67982115_371962100367727_5693230143316027671_n.jpg?_nc_ht=scontent-hkg3-2.cdninstagram.com&_nc_cat=107'
-  - url: 'https://scontent-hkg3-2.cdninstagram.com/vp/191e6b11178d3b33b0caacde6432ffe4/5E35AC5F/t51.2885-15/e35/s320x320/67982115_371962100367727_5693230143316027671_n.jpg?_nc_ht=scontent-hkg3-2.cdninstagram.com&_nc_cat=107'
