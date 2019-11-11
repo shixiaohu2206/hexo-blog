@@ -134,10 +134,6 @@ changyan:
   appid: ''
   conf: ''
 
-#swiftype
-swiftype:
-  appKey: ''
-
 #https://github.com/alexbruno/hexo-generator-json-content
 jsonContent:
   dateFormat: YYYY/MM/DD
