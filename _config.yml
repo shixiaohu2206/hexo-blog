@@ -123,6 +123,12 @@ baidu_site_verification: vvVgSQUzPU
 #百度联盟验证
 baidu_union_verify: 'e41bcda632ad60427602fc274753bb7f'
 
+#百度统计
+baidu_tongji:
+  site_from: '2019/7/26'
+  site_id: '13728585'
+  access_token: '21.8899fb89e3bb4a38c1b126c2ff812e25.2592000.1576118885.2888690973-16666326'
+
 #google gtm
 gtm_id: 'GTM-WJ7P5KL'
 
