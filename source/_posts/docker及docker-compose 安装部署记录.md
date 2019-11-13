@@ -14,22 +14,22 @@ date: 2019-11-01 18:49:06
 
 {% asset_img 1.png 媳妇最美 %}
 
-## 前言
+## 1 前言
 
 腾讯云服务器将要到期，在忙着服务器搬迁的事，博客也荒废了挺久
 
-## 使用 Docker 的原因
+## 2 使用 Docker 的原因
 
 - 学习新的部署方式
 - 方便服务器搬迁，快速部署，不会浪费大量时间在环境配置上
 
-## 安装 dokcer
+## 3 安装 dokcer
 
-### 安装 Docker CE（社区版）
+### 3.1 安装 Docker CE（社区版）
 
 > 官方教程 https://docs.docker.com/install/linux/docker-ce/centos/
 
-### 安装 DOCKER CE
+### 3.2 安装 DOCKER CE
 
 需要一个 Centos7 以上版本的环境
 
@@ -64,7 +64,7 @@ $ sudo service docker start
 $ sudo docker -v
 ```
 
-### 粗心大意的报错
+### 3.3 粗心大意的报错
 
 拉取镜像时报错
 
@@ -78,7 +78,7 @@ Cannot connect to the Docker daemon at unix:///var/run/docker.sock.
 service docker start
 ```
 
-## 安装 docker-compose
+## 4 安装 docker-compose
 
 > docker-compose 是 docker 提供的命令行工具，用来定义和运行多个容器组成的应用。不要每次手动敲启动容器命令。
 
@@ -102,7 +102,7 @@ pip install --ignore-installed requests
 pip install docker-compose
 ```
 
-## 构建 docker-compose.yml
+## 5 构建 docker-compose.yml
 
 容器之间的通信困扰了挺久，现版本不建议使用`link`来连接两个容器，`link`后续废弃，使用`networks`即可，进入容器内后，ping 另一个容器名，就可以查看另一个容器 IP，所以这边我只在 nginx 容器中暴露 80 端口，其他容器需要访问，直接在 nginx 做转发
 
@@ -149,7 +149,7 @@ networks:
   bridge:
 ```
 
-## Nginx 转发配置
+## 6 Nginx 转发配置
 
 因为每次重装应用后，docker 容器内的网络 IP 会改变，目前有两种方案：
 
@@ -173,11 +173,11 @@ server {
 }
 ```
 
-## docker 及 docker-compose 常用命令
+## 7 docker 及 docker-compose 常用命令
 
 都是自己常用的命令
 
-### docker、nginx
+### 7.1 docker、nginx
 
 ```java
 // 查看当前文件大小
@@ -231,7 +231,7 @@ docker push [OPTIONS] NAME[:TAG]
 docker logs *****/nginx
 ```
 
-### docker-compose
+### 7.2 docker-compose
 
 需要在`docker-compose.yml`同级目录执行，命令与 docker 命令基本一致
 
@@ -243,7 +243,7 @@ docker-compose up -d
 docker-compose down
 ```
 
-### Docker hub、github 自动部署
+### 7.3 Docker hub、github 自动部署
 
 > 在 github 项目的根目录添加`Dockerfile`文件，这样 Docker hub 就可以根据`Dockerfile`文件来自动构建
 
@@ -279,7 +279,7 @@ EXPOSE 7001
 CMD ["npm", "start"]
 ```
 
-## 期间遇到的问题
+## 8 期间遇到的问题
 
 1. 在 push 代码到 gogs 后，gogs 的 post-receive 钩子会再 push 代码到 github，本来使用 ssh，需要在 gogs 容器中生成密钥提交到 github 上。生成后，在测试时发现以下报错
 
@@ -312,7 +312,7 @@ CMD ["npm", "start"]
 
    默认 1m
 
-## 最后
+## 9 最后
 
 使用 docker 部署，走了许多弯路，选择合适镜像、容器之间通信就花了挺久，对于一个陌生的领域，确实需要花挺多精力来学习。
 

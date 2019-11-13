@@ -165,3 +165,8 @@ friends:
     url: 'https://www.imcyc.cn'
     logo: 'https://s.gravatar.com/avatar/6e9164b08cc215816e6381d5f9f70b58?s=80'
     intro: 'CS随笔'
+  - name: Tim
+    time: '2019-11-13'
+    url: 'https://itstim.xyz/'
+    logo: 'http://q1.qlogo.cn/g?b=qq&nk=2921349622&s=100'
+    intro: '准码农'
