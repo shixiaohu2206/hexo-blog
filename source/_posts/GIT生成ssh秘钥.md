@@ -14,8 +14,8 @@ date: 2017-10-20 00:00:00
 $ cd ~/.ssh
 
 // 配置用户相关信息
-$ git config –global user.name ‘xxxxx’
-$ git config –global user.email ‘xxx@xx.xxx’
+$ git config –-global user.name ‘xxxxx’
+$ git config –-global user.email ‘xxx@xx.xxx’
 
 // 查看用户配置的相关信息
 $ git config user.name
