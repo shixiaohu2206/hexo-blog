@@ -1,5 +1,5 @@
 ---
-title: PWA功能
+title: PWA简单介绍
 tags:
   - JavaScript
 categories:
@@ -8,9 +8,7 @@ abbrlink: 22121
 date: 2019-06-14 19:14:06
 ---
 
-## PWA
-
-### 介绍
+## 介绍
 
 > PWA（Progressive Web App）, 即渐进式 web 应用。PWA 本质上是 web 应用，目的是通过多项新技术，在安全、性能、体验等方面给用户原生应用的体验。而且无需像原生应用那样繁琐的下载、安装、升级等操作。
 
@@ -18,11 +16,11 @@ date: 2019-06-14 19:14:06
 
 <!-- more -->
 
-### 核心技术
+## 核心技术
 
 > Service Worker 是 PWA 的核心技术
 
-#### 特性
+### 特性
 
 - 基于 HTTPS 环境，这是构建 PWA 的硬性前提
 - 是一个独立的 worker 线程，独立于当前网页进程，有自己独立的 worker context
@@ -31,11 +29,11 @@ date: 2019-06-14 19:14:06
 - 不能直接操作 DOM
 - 异步实现，内部大都是通过 Promise 实现
 
-### Service Worker 生命周期
+## Service Worker 生命周期
 
 > 注册--安装--激活
 
-#### 注册
+### 注册
 
 > 告诉浏览器 serviceworkerJS 文件存放在什么位置，浏览器下载、解析、执行。
 
@@ -56,7 +54,7 @@ if ('serviceWorker' in navigator) {
 }
 ```
 
-#### 安装
+### 安装
 
 > 注册结束后，触发 install 事件，进行安装。
 
@@ -68,7 +66,7 @@ self.addEventListener('install', function(event) {
 })
 ```
 
-#### 激活
+### 激活
 
 > 当安装成功后，serviceworker 就会激活，这时就会处理 activate 事件回调 (提供了更新缓存策略的机会)。并可以处理功能性的事件 fetch (请求)、sync (后台同步)、push (推送)。
 
@@ -88,7 +86,7 @@ self.addEventListener('activate', function(event) {
 })
 ```
 
-### Service Worker 缓存功能
+## Service Worker 缓存功能
 
 > 安装时，service worker 将我们指定的静态资源进行缓存（即预缓存）,与此同时，service worker 还可以拦截 HTTP 请求相应，做到动态缓存
 
@@ -115,7 +113,7 @@ self.addEventListener('fetch', function(event) {
 })
 ```
 
-#### PWA 添加横幅，增加用户使用率
+### PWA 添加横幅，增加用户使用率
 
 1. https://lavas.baidu.com/doc/engage-retain-users/add-to-home-screen/app-install-banners
 2. https://github.com/electron-react-boilerplate/electron-react-boilerplate
