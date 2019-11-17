@@ -8,7 +8,7 @@ module.exports = {
     es6: true,
     mocha: true
   },
-  extends: ['eslint:recommended', 'plugin:react/recommended'], // 使用Eslint官方规则推荐
+  extends: ['eslint:recommended'], // 使用Eslint官方规则推荐
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly'
