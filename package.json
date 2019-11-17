@@ -42,15 +42,5 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  },
-  "lint-staged": {
-    "linters": {
-      "*.{jsx,txs,ts,js,json,css,md,scss,less}": "eslint"
-    },
-    "ignore": [
-      "./node_modules/*",
-      "./package.json",
-      "./.vscode"
-    ]
   }
 }

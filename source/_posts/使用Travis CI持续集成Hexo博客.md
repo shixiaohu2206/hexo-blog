@@ -15,7 +15,7 @@ date: 2019-09-10 18:00:25
 
 > Travis CI 教程和讲解，可以查看阮一峰老师的[《持续集成服务 Travis CI 教程》](http://www.ruanyifeng.com/blog/2017/12/travis_ci_tutorial.html)
 
-# 前言
+## 前言
 
 使用 Travis CI 的原因，也很简单，就是在写完博客的时候，不希望在本地构建、发布，于是想到能不能在远端构建发布?
 
