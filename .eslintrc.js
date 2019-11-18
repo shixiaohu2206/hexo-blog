@@ -40,7 +40,9 @@ module.exports = {
     'no-implied-eval': 1, // 禁止使用类似 eval() 的方法
     'eol-last': 2, // 要求或禁止文件末尾存在空行
     'no-multiple-empty-lines': 2, // 禁止出现多行空行
-    'no-var': 2, // 要求使用 let 或 const 而不是 var
-    'prefer-const': 2 // 要求使用 const 声明那些声明后不再被修改的变量
+    'no-var': 0, // 要求使用 let 或 const 而不是 var
+    'no-undef': 0, //
+    'no-inner-declarations': 0, //
+    'prefer-const': 0 // 要求使用 const 声明那些声明后不再被修改的变量
   }
 }
