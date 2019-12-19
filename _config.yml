@@ -127,7 +127,7 @@ baidu_union_verify: 'e41bcda632ad60427602fc274753bb7f'
 baidu_tongji:
   site_from: '2019/7/26'
   site_id: '13728585'
-  access_token: '21.8899fb89e3bb4a38c1b126c2ff812e25.2592000.1576118885.2888690973-16666326'
+  access_token: '21.7db096dd216693971c38906559dffcfa.2592000.1579318074.2888690973-16666326'
 
 #google gtm
 gtm_id: 'GTM-WJ7P5KL'
